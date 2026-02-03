@@ -8,3 +8,4 @@
 - **Semana 1:** Ordenamientos
 - **Semana 2:** Punteros
 - **Semana 3:** Cadenas de caracteres con punteros
+- **Semana 4:** Asignación dinamica
