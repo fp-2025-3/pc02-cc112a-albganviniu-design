@@ -4,7 +4,7 @@
 **Codigo:** 20250384E
 
 ## Ejericio 1
-![alt text](image.png)
+![alt text](imagen1.png)
 
 ## Ejericio 2
-![alt text](image.png)
+![alt text](imagen2.png)
