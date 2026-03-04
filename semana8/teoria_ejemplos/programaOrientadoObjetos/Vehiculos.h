@@ -1,7 +1,10 @@
 #ifndef VEHICULOS_H
 #define VEHICULOS_H
+
 #include <iostream>
 #include <string>
+#include <fstream>
+
 using namespace std;
 
 // definicion de la clase base (ABSTRACTA)
@@ -23,20 +26,18 @@ public:
     // Destructor
     virtual ~Vehiculo(); // virtual para polimorfismo
 
-    // Getters (encapsulacion)
-    string getPlaca() const;
-    string getMarca() const;
-    int getAnio() const;
-    double getPrecioVenta() const;
-
     // Metodo virtual para polimorfismo
     virtual void mostrarInformacion() const;
 
-    // Convertimos la clase base a una clase abstracta, definiendo un metodo virtual puro
+    // Convertimos la clase base a una clase abstracta
     virtual double calcularPrecioFinal() const = 0; // método abstracto/virtual puro
 
-    virtual void guardar(ofstream & out) const = 0;
-    virtual void cargar(ifstream & in) const = 0;
+    // Para guardar y cargar en archivo binario
+    virtual void guardar(ofstream &out) const = 0;
+    virtual void cargar(ifstream &in) = 0;
+
+    // Para identificar tipo al reconstruir
+    virtual int getTipo() const = 0;
 };
 
 class Automovil : public Vehiculo
@@ -60,7 +61,9 @@ public:
     double calcularPrecioFinal() const override;
 
     void guardar(ofstream &out) const override;
-    void cargar(ifstream &in) const override;
+    void cargar(ifstream &in) override;
+
+    int getTipo() const override;
 };
 
 class Camion : public Vehiculo
@@ -84,7 +87,9 @@ public:
     double calcularPrecioFinal() const override;
 
     void guardar(ofstream &out) const override;
-    void cargar(ifstream &in) const override;
+    void cargar(ifstream &in) override;
+
+    int getTipo() const override;
 };
 
 class Motocicleta : public Vehiculo
@@ -108,7 +113,9 @@ public:
     double calcularPrecioFinal() const override;
 
     void guardar(ofstream &out) const override;
-    void cargar(ifstream &in) const override;
+    void cargar(ifstream &in) override;
+
+    int getTipo() const override;
 };
 
 #endif
